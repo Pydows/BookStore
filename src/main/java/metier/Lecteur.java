@@ -12,7 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id_compte",referencedColumnName = "id")
+@PrimaryKeyJoinColumn(name="id",referencedColumnName = "id")
 public class Lecteur extends Compte{
 	
 	private String nom, prenom;
