@@ -1,12 +1,17 @@
 package metier;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name="typeCompte")
 public class Compte {
 
 	@Id
@@ -23,6 +28,11 @@ public class Compte {
 	
 	public Compte(int id, String login, String password) {
 		this.id = id;
+		this.login = login;
+		this.password = password;
+	}
+	
+	public Compte(String login, String password) {
 		this.login = login;
 		this.password = password;
 	}

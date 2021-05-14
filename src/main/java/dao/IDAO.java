@@ -12,9 +12,7 @@ public interface IDAO<T,K> {
 
     public T findById(K id);
 
-    public T insert(T object);
-
-    public T update(T object);
+    public T save(T object);
 
     public void delete(T object);
 }
