@@ -34,6 +34,15 @@ public class Avis {
 		livre.setNote((livre.getNote() + note)/livre.getNbNotes());
 	}
 	
+	
+	public Avis(double note, String commentaire, Livre livre, Lecteur lecteur) {
+		this.note = note;
+		this.commentaire = commentaire;
+		this.livre = livre;
+		this.lecteur = lecteur;
+	}
+
+
 	public Avis() {
 	}
 

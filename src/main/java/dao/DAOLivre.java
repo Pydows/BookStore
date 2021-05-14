@@ -13,9 +13,10 @@ public class DAOLivre implements IDAO<Livre, Integer>{
 
 	public List<Livre> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query query = em.createQuery("from " + Livre.class);
-		List<Livre> g = query.getResultList();
-		return g;
+		Query query = em.createQuery("SELECT l from Livre l " + Livre.class);
+		List<Livre> l = query.getResultList();
+		em.close();
+		return l;
 	}
 
 	public Livre findById(Integer id) {

@@ -1,17 +1,16 @@
 package dao;
 
 import java.util.List;
-
-import javax.management.Query;
-import javax.naming.Context;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import metier.Lecteur;
+import util.Context;
 
 public class DAOLecteur implements IDAO<Lecteur,Integer>{
-
-	public Lecteur findById(int id) {
-		EntityManager em = Context.get_instance().getEmf().createEntityManager();
+	
+	public Lecteur findById(Integer id) {
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		
 		Lecteur lecteur = em.find(Lecteur.class, id);
 		
@@ -20,9 +19,9 @@ public class DAOLecteur implements IDAO<Lecteur,Integer>{
 	}
 
 	public List<Lecteur> findAll() {
-		EntityManager em = Context.get_instance().getEmf().createEntityManager();
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		
-		Query myQuery = em.createQuery("SELECT c from Lecteur c",Lecteur.class);
+		Query myQuery = em.createQuery("SELECT c from Lecteur c" + Lecteur.class);
 		List<Lecteur> lecteurs=myQuery.getResultList();
 		em.close();
 		return lecteurs;
@@ -30,7 +29,7 @@ public class DAOLecteur implements IDAO<Lecteur,Integer>{
 
 
 	public Lecteur save(Lecteur Lecteur) {
-		EntityManager em = Context.get_instance().getEmf().createEntityManager();
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		
 		em.getTransaction().begin();
 		Lecteur = em.merge(Lecteur);
@@ -41,7 +40,7 @@ public class DAOLecteur implements IDAO<Lecteur,Integer>{
 	}
 
 	public void delete(Lecteur Lecteur) {
-		EntityManager em = Context.get_instance().getEmf().createEntityManager();
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		
 		em.getTransaction().begin();
 		Lecteur = em.merge(Lecteur);
@@ -49,4 +48,7 @@ public class DAOLecteur implements IDAO<Lecteur,Integer>{
 		em.getTransaction().commit();
 		
 		em.close();
+
 	}
+
+}
