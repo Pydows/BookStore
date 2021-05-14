@@ -23,6 +23,5 @@ public class Administrateur extends Compte {
 		DAOLivre daoL = new DAOLivre();
 		Livre l = new Livre(titre, auteur, prix, annee);
 		daoL.save(l);
-	}
-	
+	}	
 }
