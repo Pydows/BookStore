@@ -1,13 +1,13 @@
 package jframe;
 
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class GUILogin  implements ActionListener{
+public class GUILogin extends JFrame implements ActionListener{
 
+	private static final long serialVersionUID = 1L;
 	private static JLabel userLabel;
 	private static JTextField userText;
 	private static JLabel passwordLabel;
