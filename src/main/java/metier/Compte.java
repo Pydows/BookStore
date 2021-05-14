@@ -21,18 +21,17 @@ public class Compte {
 	protected String login;
 	@Column(name = "mot_de_passe", length = 20)
 	protected String password;
-	
-	public Compte() {
-		
+
+	public Compte() {	
 	}
-	
-	public Compte(int id, String login, String password) {
-		this.id = id;
+
+	public Compte(String login, String password) {
 		this.login = login;
 		this.password = password;
 	}
-	
-	public Compte(String login, String password) {
+
+	public Compte(int id, String login, String password) {
+		this.id = id;
 		this.login = login;
 		this.password = password;
 	}
@@ -58,11 +57,11 @@ public class Compte {
 		this.password = password;
 	}
 
-	
+
 	@Override
 	public String toString() {
 		return "Compte [id=" + id + ", login=" + login + ", password=" + password + "]";
 	}
-		
-	
+
+
 }
