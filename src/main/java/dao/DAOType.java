@@ -13,8 +13,9 @@ public class DAOType implements IDAO<Type, Integer>{
 
 	public List<Type> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query query = em.createQuery("from " + Type.class);
+		Query query = em.createQuery("SELECT t from Type t" + Type.class);
 		List<Type> t = query.getResultList();
+		em.close();
 		return t;
 	}
 

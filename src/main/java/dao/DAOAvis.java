@@ -13,8 +13,9 @@ public class DAOAvis implements IDAO<Avis, Integer>{
 
 	public List<Avis> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query query = em.createQuery("from " + Avis.class);
+		Query query = em.createQuery("SELECT a from Avis a" + Avis.class);
 		List<Avis> a = query.getResultList();
+		em.close();
 		return a;
 	}
 

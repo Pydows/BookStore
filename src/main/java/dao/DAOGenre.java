@@ -13,8 +13,9 @@ public class DAOGenre implements IDAO<Genre, Integer>{
 
 	public List<Genre> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query query = em.createQuery("from " + Genre.class);
+		Query query = em.createQuery("SELECT g from Genre g" + Genre.class);
 		List<Genre> g = query.getResultList();
+		em.close();
 		return g;
 	}
 

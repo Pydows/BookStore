@@ -14,27 +14,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 @PrimaryKeyJoinColumn(name="id_compte",referencedColumnName = "id")
 public class Lecteur extends Compte{
-	public static String saisieString(String msg) 
-	{
-		Scanner sc = new Scanner(System.in);
-		System.out.println(msg);
-		return sc.nextLine();
-	}
-
-	public static int saisieInt(String msg) 
-	{
-		Scanner sc = new Scanner(System.in);
-		System.out.println(msg);
-		return sc.nextInt();
-	}
-
-	public static double saisieDouble(String msg) 
-	{
-		Scanner sc = new Scanner(System.in);
-		System.out.println(msg);
-		return sc.nextDouble();
-	}
-
+	
 	private String nom, prenom;
 	@Column(name="date_naissance")
 	private LocalDate dateNaissance;
@@ -97,16 +77,10 @@ public class Lecteur extends Compte{
 		this.totalAchat = totalAchat;
 	}
 
-	public void voter(double note, Livre livre, Avis avis) {
-		
-		for(Livre l) {
+	public Avis voter(double note, String commentaire, Livre livre) {
+					
+			Avis a = new Avis(note, commentaire, livre, this);
+			return a;
 			
-			double noteLivre = saisieDouble("Attribuez une note sur dix pour le livre" + livre.getTitre());
-			livre.setNote = (noteLivre + noteLivre)/nbNotes;
-			Avis avis = saisieString("Exprimez votre avis en quelques lignes");
-			return avis;
-			
-		}
-
 	}
 }
