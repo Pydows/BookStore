@@ -1,18 +1,16 @@
 package metier;
 
 import java.time.LocalDate;
-import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.transaction.Status;
 
 @Entity
 public class Livre {
@@ -26,8 +24,12 @@ public class Livre {
 	private double note;
 	private int nbNotes =0;
 	private LocalDate annee;
+	@Enumerated(EnumType.STRING)
+    private Genre genre;
+	private Type type;
 	
-	@OneToMany
+	
+	@OneToMany(mappedBy = "livre")
 	private List<Avis> avis;
 	
 	public Livre(int id, String titre, String auteur, double prix, LocalDate annee) {
