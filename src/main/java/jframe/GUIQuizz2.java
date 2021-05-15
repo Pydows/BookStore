@@ -34,7 +34,7 @@ public class GUIQuizz2 implements ActionListener
 		etranger.setActionCommand("étranger");
 		JButton plage = new JButton("à la plage", Iplage);
 		plage.setActionCommand("plage");
-		JButton nuit = new JButton("chez vous", Inuit);
+		JButton nuit = new JButton("la nuit", Inuit);
 		nuit.setActionCommand("nuit");
 		
 		f.getContentPane().add(etranger);  
