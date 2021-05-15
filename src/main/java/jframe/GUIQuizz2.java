@@ -1,100 +1,101 @@
 package jframe;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
 
-import javax.swing.*; 
+public class GUIQuizz2 {
 
-public class GUIQuizz2 extends JFrame implements ActionListener
-{  
+	private JFrame frmQuelLivreEst;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
-	private static ButtonGroup group2;
-
-	public GUIQuizz2()  {
-
-		JFrame f = new JFrame("Quel livre est fait pour vous ? (2/6)"); 
-		JLabel label = new JLabel("(2) Quel cadre convient le mieux à votre humeur ?", JLabel.CENTER);
-		f.setSize(800,775);  
-		f.getContentPane().setLayout(null);  
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-
-
-		f.getContentPane().setLayout(new GridLayout(3, 1));
-		f.getContentPane().add(label);
-
-
-		JButton home = new JButton("chez vous");
-		home.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/home.png")));
-		home.setActionCommand("maison");
-		JButton etranger = new JButton("à l'étranger");
-		etranger.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/paysetranger.png")));
-		home.setActionCommand("etranger");
-		JButton plage = new JButton("à la plage");
-		plage.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/plage.png")));
-		etranger.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/plage.png")));
-		home.setActionCommand("plage");
-		JButton nuit = new JButton("la nuit");
-		nuit.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/nuit.png")));
-		etranger.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/nuit.png")));
-		home.setActionCommand("nuit");
-		
-		f.getContentPane().add(etranger);  
-		f.getContentPane().add(plage);  
-		f.getContentPane().add(home);  
-		f.getContentPane().add(nuit);
-		
-		home.setVerticalTextPosition(SwingConstants.BOTTOM);
-		home.setHorizontalTextPosition(SwingConstants.CENTER);
-		etranger.setVerticalTextPosition(SwingConstants.BOTTOM);
-		etranger.setHorizontalTextPosition(SwingConstants.CENTER);
-		plage.setVerticalTextPosition(SwingConstants.BOTTOM);
-		plage.setHorizontalTextPosition(SwingConstants.CENTER);
-		nuit.setVerticalTextPosition(SwingConstants.BOTTOM);
-		nuit.setHorizontalTextPosition(SwingConstants.CENTER);
-
-		home.setBounds(100,50,150,200);  
-		etranger.setBounds(350,50,150,200);
-		plage.setBounds(600,50,150,200);
-		nuit.setBounds(600,50,150,200);
-
-		f.setVisible(true);  
-
-		JButton button = new JButton("Valider");
-		button.setBounds(375, 275, 100, 50);
-		f.getContentPane().add(button);
-		button.addActionListener(this);
-		
-		group2 = new ButtonGroup();
-		
-		group2.add(home);
-		group2.add(etranger);
-		group2.add(plage);
-		group2.add(nuit);
-		
-		f.getContentPane().add(home);
-		f.getContentPane().add(etranger);
-		f.getContentPane().add(plage);
-		f.getContentPane().add(nuit);
-		f.getContentPane().add(button);
-		
-
-		
-
-
-
-
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUIQuizz2 window = new GUIQuizz2();
+					window.frmQuelLivreEst.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
-	public static void main(String[] args) {  
-		new Test();  
-	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("Valider")) {
-			System.out.println("Le radio bouton sélectionné est : " + 
-					group2.getSelection().getActionCommand());
-//			frame.dispose();
-//			GUIQuizz2.main(null);
-		}
 
+	/**
+	 * Create the application.
+	 */
+	public GUIQuizz2() {
+		initialize();
 	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmQuelLivreEst = new JFrame();
+		frmQuelLivreEst.setTitle("Quel livre est fait pour vous ? (2/6)");
+		frmQuelLivreEst.setBounds(100, 100, 426, 356);
+		frmQuelLivreEst.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmQuelLivreEst.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Quel cadre convient le mieux \u00E0 votre humeur d'aujourd'hui ?");
+		lblNewLabel.setBounds(43, 11, 351, 14);
+		frmQuelLivreEst.getContentPane().add(lblNewLabel);
+		
+		JCheckBox btnNewButton = new JCheckBox("Maison");
+		buttonGroup.add(btnNewButton);
+		btnNewButton.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/image/home.png")));
+		btnNewButton.setBounds(24, 28, 180, 124);
+		frmQuelLivreEst.getContentPane().add(btnNewButton);
+		btnNewButton.setActionCommand("Maison");
+		
+		JCheckBox btnNewButton_1 = new JCheckBox("Plage");
+		buttonGroup.add(btnNewButton_1);
+		btnNewButton_1.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/image/plage.png")));
+		btnNewButton_1.setBounds(24, 153, 180, 124);
+		frmQuelLivreEst.getContentPane().add(btnNewButton_1);
+		btnNewButton_1.setActionCommand("Plage");
+		
+		JCheckBox btnNewButton_2 = new JCheckBox("Etranger");
+		buttonGroup.add(btnNewButton_2);
+		btnNewButton_2.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/image/paysetranger.png")));
+		btnNewButton_2.setBounds(214, 28, 180, 124);
+		frmQuelLivreEst.getContentPane().add(btnNewButton_2);
+		btnNewButton_2.setActionCommand("Etranger");
+		
+		JCheckBox btnNewButton_3 = new JCheckBox("Nuit");
+		buttonGroup.add(btnNewButton_3);
+		btnNewButton_3.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/image/nuit.png")));
+		btnNewButton_3.setBounds(214, 153, 180, 124);
+		frmQuelLivreEst.getContentPane().add(btnNewButton_3);
+		btnNewButton_3.setActionCommand("Nuit");
+		
+		JButton btnNewButton_4 = new JButton("Valider");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getActionCommand().equals("Valider")) {
+					System.out.println("vous avez choisi comme type de livre : " + 
+							buttonGroup.getSelection().getActionCommand());
+//					frame.dispose();
+//					GUIQuizz2.main(null);
+				}
+				
+			}
+		});
+		btnNewButton_4.setBounds(24, 288, 370, 23);
+		frmQuelLivreEst.getContentPane().add(btnNewButton_4);
+	}
+
 }
