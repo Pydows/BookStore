@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*; 
 
-public class GUIQuizz2 implements ActionListener
+public class GUIQuizz2 extends JFrame implements ActionListener
 {  
 
 	private static ButtonGroup group2;
@@ -23,19 +23,20 @@ public class GUIQuizz2 implements ActionListener
 		f.getContentPane().add(label);
 
 
-		Icon Ihome = new ImageIcon("file:///C:/Users/fblos/OneDrive/Bureau/Git/Projet/BookStore/src/main/java/image/home.png");
-		Icon Ietranger = new ImageIcon("file:///C:/Users/fblos/OneDrive/Bureau/Git/Projet/BookStore/src/main/java/image/paysetranger.png");
-		Icon Iplage = new ImageIcon("file:///C:/Users/fblos/OneDrive/Bureau/Git/Projet/BookStore/src/main/java/image/plage.png");
-		Icon Inuit = new ImageIcon("file:///C:/Users/fblos/OneDrive/Bureau/Git/Projet/BookStore/src/main/java/image/nuit.png");
-		
-		JButton home = new JButton("chez vous", Ihome);
+		JButton home = new JButton("chez vous");
+		home.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/home.png")));
 		home.setActionCommand("maison");
-		JButton etranger = new JButton("à l'étranger", Ietranger);
-		etranger.setActionCommand("étranger");
-		JButton plage = new JButton("à la plage", Iplage);
-		plage.setActionCommand("plage");
-		JButton nuit = new JButton("la nuit", Inuit);
-		nuit.setActionCommand("nuit");
+		JButton etranger = new JButton("à l'étranger");
+		etranger.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/paysetranger.png")));
+		home.setActionCommand("etranger");
+		JButton plage = new JButton("à la plage");
+		plage.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/plage.png")));
+		etranger.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/plage.png")));
+		home.setActionCommand("plage");
+		JButton nuit = new JButton("la nuit");
+		nuit.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/nuit.png")));
+		etranger.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/jframe/nuit.png")));
+		home.setActionCommand("nuit");
 		
 		f.getContentPane().add(etranger);  
 		f.getContentPane().add(plage);  
@@ -70,11 +71,13 @@ public class GUIQuizz2 implements ActionListener
 		group2.add(plage);
 		group2.add(nuit);
 		
-		f.add(home);
-		f.add(etranger);
-		f.add(plage);
-		f.add(nuit);
-		f.add(button);
+		f.getContentPane().add(home);
+		f.getContentPane().add(etranger);
+		f.getContentPane().add(plage);
+		f.getContentPane().add(nuit);
+		f.getContentPane().add(button);
+		
+
 		
 
 
