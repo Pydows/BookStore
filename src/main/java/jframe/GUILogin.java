@@ -1,91 +1,105 @@
 package jframe;
 
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
-public class GUILogin extends JFrame implements ActionListener{
+public class GUILogin {
 
-	private static final long serialVersionUID = 1L;
-	private static JLabel userLabel;
-	private static JTextField userText;
-	private static JLabel passwordLabel;
-	private static JPasswordField passwordText;
-	private static JButton button;
-	private static JLabel success;
-	private static JFrame frame;
-	private static JPanel panel;
-	
-	private static void init() {
+	private JFrame frame;
+	private JPanel panel;
+	private JLabel userLabel;
+	private JLabel passwordLabel;
+	private JTextField userText;
+	private JTextField passwordText;
+	private JButton button;
+	private JLabel success;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUILogin window = new GUILogin();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public GUILogin() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
 		panel = new JPanel();
 		frame = new JFrame("Page de Login");
 		frame.setSize(300, 175);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(panel);
-
+		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		// Espace user + mdp
 		userLabel = new JLabel("user");
-		userLabel.setBounds(10, 20, 80, 25);
+		userLabel.setBounds(29, 24, 33, 14);
 		panel.add(userLabel);
 
 		userText = new JTextField();
-		userText.setBounds(100, 20, 165, 25);
+		userText.setBounds(98, 21, 141, 20);
 		panel.add(userText);
 
 		passwordLabel = new JLabel("password");
-		passwordLabel.setBounds(10, 50, 80, 25);
+		passwordLabel.setBounds(29, 46, 79, 14);
 		panel.add(passwordLabel);
 
 		passwordText = new JPasswordField();
-		passwordText.setBounds(100, 50, 165, 25);
+		passwordText.setBounds(98, 46, 141, 20);
 		panel.add(passwordText);
-
-		//Le boutton
+		
+		
 		button = new JButton("Login");
-		button.setBounds(10, 80, 80, 25);
-		button.addActionListener(new GUILogin());
-		panel.add(button);
-
-		success = new JLabel("");
-		success.setBounds(10, 110, 300, 25);
-		panel.add(success);
-
-
-		frame.setVisible(true);
-
-	}
-
-	public static void main(String[] args) {
-
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				init();
+		button.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String user = userText.getText();
+				String password = passwordText.getText();
+				
+				if (user.equals("Fred")&& password.equals("test"))
+				{
+					// Le changement de page
+					frame.dispose();
+					GUIQuizz1.main(null);
+				}
+				else
+				{
+					success.setText("Loupé escroc");
+				}
 			}
 		});
-	
-	}
-	
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		String user = userText.getText();
-		String password = passwordText.getText();
+		button.setBounds(29, 83, 210, 23);
+		panel.add(button);
 		
-		if (user.equals("Fred")&& password.equals("test"))
-		{
-			// Le changement de page
-			frame.dispose();
-			GUIQuizz1.main(null);
-		}
-		else
-		{
-			success.setText("Loué escroc");
-		}
+		success = new JLabel("");
+		success.setBounds(29, 117, 210, 14);
+		panel.add(success);
 	}
-
 
 }
-
