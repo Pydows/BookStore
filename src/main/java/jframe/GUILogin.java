@@ -16,9 +16,8 @@ public class GUILogin extends JFrame implements ActionListener{
 	private static JLabel success;
 	private static JFrame frame;
 	private static JPanel panel;
-
-	public static void main(String[] args) {
-
+	
+	private static void init() {
 		panel = new JPanel();
 		frame = new JFrame("Page de Login");
 		frame.setSize(300, 175);
@@ -26,8 +25,7 @@ public class GUILogin extends JFrame implements ActionListener{
 		frame.add(panel);
 
 		panel.setLayout(null);
-
-
+		
 		// Espace user + mdp
 		userLabel = new JLabel("user");
 		userLabel.setBounds(10, 20, 80, 25);
@@ -58,9 +56,18 @@ public class GUILogin extends JFrame implements ActionListener{
 
 		frame.setVisible(true);
 
-
-		//		
 	}
+
+	public static void main(String[] args) {
+
+		javax.swing.SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				init();
+			}
+		});
+	
+	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -69,14 +76,13 @@ public class GUILogin extends JFrame implements ActionListener{
 		
 		if (user.equals("Fred")&& password.equals("test"))
 		{
-			success.setText("Bien ouej");
 			// Le changement de page
 			frame.dispose();
-			GUIQuizz.main(null);
+			GUIQuizz1.main(null);
 		}
 		else
 		{
-			success.setText("Loupé escroc");
+			success.setText("Loué escroc");
 		}
 	}
 
