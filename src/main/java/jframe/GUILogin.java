@@ -21,6 +21,7 @@ public class GUILogin {
 	private JTextField passwordText;
 	private JButton button;
 	private JLabel success;
+	private JButton btnFermer;
 
 	/**
 	 * Launch the application.
@@ -51,7 +52,7 @@ public class GUILogin {
 	private void initialize() {
 		panel = new JPanel();
 		frame = new JFrame("Page de Login");
-		frame.setSize(300, 175);
+		frame.setSize(320, 175);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -105,6 +106,15 @@ public class GUILogin {
 		success = new JLabel("");
 		success.setBounds(29, 117, 210, 14);
 		panel.add(success);
+		
+		btnFermer = new JButton("Fermer");
+		btnFermer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
+		btnFermer.setBounds(221, 108, 79, 23);
+		panel.add(btnFermer);
 	}
 
 }
