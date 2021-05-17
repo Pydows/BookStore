@@ -52,7 +52,6 @@ public class GUIQuizz4 {
 		// Définissez le frame
 				frameQ4 = new JFrame("Quel livre est fait pour vous ? (4/10) ");
 				frameQ4.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIQuizz3.class.getResource("/image/livre.png")));
-				frameQ4.setTitle("Quel livre est fait pour vous ? (3/10) ");
 				frameQ4.setBounds(50, 50, 462, 223);
 				frameQ4.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frameQ4.getContentPane().setLayout(null);

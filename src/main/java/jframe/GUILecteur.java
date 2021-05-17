@@ -83,12 +83,19 @@ public class GUILecteur {
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nom=textField_nomLecteur.getText();
-				String prenom=textField_prenomLecteur.getText();
-				String dateNaissance=textField_DNLecteur.getText();
-				System.out.println(nom +" "+ prenom +" "+  dateNaissance);
-				frmInscriptionDunLecteur.dispose();
-				GUIMenuLecteur.main(null);
+				String nomLec=textField_nomLecteur.getText();
+				String prenomLec=textField_prenomLecteur.getText();
+				String dateNaissanceLec=textField_DNLecteur.getText();
+				if(nomLec.equals("") || prenomLec.equals(""))
+				{
+					System.out.println("Veuillez rentrer un nom et prénom !");
+				}
+				else {
+					System.out.println(nomLec +" "+ prenomLec +" "+  dateNaissanceLec);
+					frmInscriptionDunLecteur.dispose();
+					GUIMenuLecteur.main(null);				
+				}
+				
 			}
 		});
 		btnNewButton.setBounds(10, 137, 371, 23);
