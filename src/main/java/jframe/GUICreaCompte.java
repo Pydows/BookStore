@@ -11,20 +11,18 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import jframe.GUICreaCompte;
+public class GUICreaCompte {
 
-public class GUILogin {
-
-	private JFrame frame;
+	private JFrame frmCrationDeCompte;
 	private JPanel panel;
 	private JLabel userLabel;
 	private JLabel passwordLabel;
 	private JTextField userText;
 	private JTextField passwordText;
-	private JButton button;
+	private JButton btnCrationDeCompte;
 	private JLabel success;
 	private JButton btnFermer;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -32,8 +30,8 @@ public class GUILogin {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUILogin window = new GUILogin();
-					window.frame.setVisible(true);
+					GUICreaCompte window = new GUICreaCompte();
+					window.frmCrationDeCompte.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,7 +42,7 @@ public class GUILogin {
 	/**
 	 * Create the application.
 	 */
-	public GUILogin() {
+	public GUICreaCompte() {
 		initialize();
 	}
 
@@ -53,57 +51,57 @@ public class GUILogin {
 	 */
 	private void initialize() {
 		panel = new JPanel();
-		frame = new JFrame("Page de Login");
-		frame.setSize(320, 175);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(panel);
+		frmCrationDeCompte = new JFrame("Page de Login");
+		frmCrationDeCompte.setSize(365, 182);
+		frmCrationDeCompte.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCrationDeCompte.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		// Espace user + mdp
 		userLabel = new JLabel("user");
-		userLabel.setBounds(29, 24, 33, 14);
+		userLabel.setBounds(29, 33, 33, 14);
 		panel.add(userLabel);
 
 		userText = new JTextField();
-		userText.setBounds(98, 21, 141, 20);
+		userText.setBounds(159, 30, 141, 20);
 		panel.add(userText);
 
 		passwordLabel = new JLabel("password");
-		passwordLabel.setBounds(29, 46, 79, 14);
+		passwordLabel.setBounds(29, 58, 79, 14);
 		panel.add(passwordLabel);
 
 		passwordText = new JPasswordField();
-		passwordText.setBounds(98, 46, 141, 20);
+		passwordText.setBounds(159, 55, 141, 20);
 		panel.add(passwordText);
 		
 		
-		button = new JButton("Login");
-		button.addActionListener(new ActionListener() {
+		btnCrationDeCompte = new JButton("Creation de Compte");
+		btnCrationDeCompte.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String user = userText.getText();
-				String password = passwordText.getText();
+				String password = passwordLabel.getText();
+//				String passwordVerif = passwordText.getText();
 				
-				if (user.equals("adm")&& password.equals("adm"))
+				if (user.equals("") || password.equals(""))
 				{
-					// Le changement de page
-					frame.dispose();
-					GUIAdmin.main(null);
+					success.setText("Veuillez remplir les champs");
 				}
-				else if (user.equals("lec")&& password.equals("lec"))
-				{
-					frame.dispose();
-					GUILecteur.main(null);
-				}
+//				else if (passwordVerif.compareToIgnoreCase(password)== passwordVerif.length()-1 )
+//				{
+//					success.setText("Veuillez remplir les même password");
+//				}
 				else
 				{
-					success.setText("Loupé escroc");
+					System.out.println("Création de Compte confirmé");
+					frmCrationDeCompte.dispose();
+					GUILogin.main(null);
 				}
 			}
 		});
-		button.setBounds(29, 83, 210, 23);
-		panel.add(button);
+		btnCrationDeCompte.setBounds(29, 83, 210, 23);
+		panel.add(btnCrationDeCompte);
 		
 		success = new JLabel("");
 		success.setBounds(29, 117, 210, 14);
@@ -112,11 +110,10 @@ public class GUILogin {
 		btnFermer = new JButton("Fermer");
 		btnFermer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				frmCrationDeCompte.dispose();
 			}
 		});
-		btnFermer.setBounds(221, 108, 79, 23);
+		btnFermer.setBounds(248, 106, 79, 23);
 		panel.add(btnFermer);
 	}
-
 }
