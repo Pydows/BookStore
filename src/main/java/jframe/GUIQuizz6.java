@@ -10,10 +10,12 @@ import javax.swing.JRadioButton;
 import java.awt.Font;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GUIQuizz6 {
 
-	private JFrame frame;
+	private JFrame frameQ6;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
@@ -24,7 +26,7 @@ public class GUIQuizz6 {
 			public void run() {
 				try {
 					GUIQuizz6 window = new GUIQuizz6();
-					window.frame.setVisible(true);
+					window.frameQ6.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,43 +45,51 @@ public class GUIQuizz6 {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frameQ6 = new JFrame();
+		frameQ6.setBounds(100, 100, 450, 300);
+		frameQ6.setTitle("Quel livre est fait pour vous ? (6/10)");
+		frameQ6.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frameQ6.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Tu pref\u00E8res une histoire :");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(0, 10, 436, 29);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		frame.getContentPane().add(lblNewLabel);
+		frameQ6.getContentPane().add(lblNewLabel);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Courte et assez rapide \u00E0 lire");
 		buttonGroup.add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnNewRadioButton.setBounds(16, 52, 203, 29);
-		frame.getContentPane().add(rdbtnNewRadioButton);
+		frameQ6.getContentPane().add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Plut\u00F4t longue qui te tiendra sur de nombreuses pages");
 		buttonGroup.add(rdbtnNewRadioButton_1);
 		rdbtnNewRadioButton_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnNewRadioButton_1.setBounds(16, 83, 410, 44);
-		frame.getContentPane().add(rdbtnNewRadioButton_1);
+		frameQ6.getContentPane().add(rdbtnNewRadioButton_1);
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Style saga, qui t'accompagnera sur 3-5 tomes");
 		buttonGroup.add(rdbtnNewRadioButton_2);
 		rdbtnNewRadioButton_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnNewRadioButton_2.setBounds(16, 129, 410, 44);
-		frame.getContentPane().add(rdbtnNewRadioButton_2);
+		frameQ6.getContentPane().add(rdbtnNewRadioButton_2);
 		
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Que tu pourras suivre sur de nombreux tomes et de nombreuses ann\u00E9es");
 		buttonGroup.add(rdbtnNewRadioButton_3);
 		rdbtnNewRadioButton_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnNewRadioButton_3.setBounds(16, 175, 410, 44);
-		frame.getContentPane().add(rdbtnNewRadioButton_3);
+		frameQ6.getContentPane().add(rdbtnNewRadioButton_3);
 		
 		JButton btnNewButton = new JButton("Suivant");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frameQ6.dispose();
+				GUIQuizz7.main(null);
+			}
+		});
 		btnNewButton.setBounds(175, 232, 85, 21);
-		frame.getContentPane().add(btnNewButton);
+		frameQ6.getContentPane().add(btnNewButton);
+		
 	}
 }
