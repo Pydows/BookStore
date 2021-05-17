@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
+import java.awt.Toolkit;
 
 public class GUIQuizz10 {
 
@@ -45,6 +46,7 @@ public class GUIQuizz10 {
 	 */
 	private void initialize() {
 		frameQ10 = new JFrame();
+		frameQ10.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIQuizz10.class.getResource("/image/livre.png")));
 		frameQ10.setBounds(100, 100, 450, 300);
 		frameQ10.setTitle("Quel livre est fait pour vous ? (10/10)");
 		frameQ10.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,27 +62,32 @@ public class GUIQuizz10 {
 		buttonGroup.add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.setBounds(10, 37, 103, 21);
 		frameQ10.getContentPane().add(rdbtnNewRadioButton);
+		rdbtnNewRadioButton.setActionCommand("humour");
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Son courage");
 		buttonGroup.add(rdbtnNewRadioButton_1);
 		rdbtnNewRadioButton_1.setBounds(10, 78, 103, 21);
 		frameQ10.getContentPane().add(rdbtnNewRadioButton_1);
+		rdbtnNewRadioButton_1.setActionCommand("courage");
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Sa sensibilit\u00E9");
 		buttonGroup.add(rdbtnNewRadioButton_2);
 		rdbtnNewRadioButton_2.setBounds(10, 121, 103, 21);
 		frameQ10.getContentPane().add(rdbtnNewRadioButton_2);
+		rdbtnNewRadioButton_2.setActionCommand("sensibilité");
 		
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Son charisme");
 		buttonGroup.add(rdbtnNewRadioButton_3);
-		rdbtnNewRadioButton_3.setBounds(10, 166, 103, 21);
+		rdbtnNewRadioButton_3.setBounds(10, 166, 226, 21);
 		frameQ10.getContentPane().add(rdbtnNewRadioButton_3);
+		rdbtnNewRadioButton_3.setActionCommand("charisme");
 		
-		JButton btnNewButton = new JButton("Valider");
+		JButton btnNewButton = new JButton("Finir");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String Q10 = buttonGroup.getSelection().getActionCommand();
+				System.out.println(Q10);
 				frameQ10.dispose();
-				GUILogin.main(null);
 			}
 		});
 		btnNewButton.setBounds(341, 232, 85, 21);

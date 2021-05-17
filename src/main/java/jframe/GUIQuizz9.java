@@ -10,10 +10,15 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JToggleButton;
+import javax.swing.ButtonGroup;
+import java.awt.Toolkit;
+import javax.swing.JRadioButton;
 
 public class GUIQuizz9 {
 
 	private JFrame frameQ9;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -43,7 +48,8 @@ public class GUIQuizz9 {
 	 */
 	private void initialize() {
 		frameQ9 = new JFrame();
-		frameQ9.setBounds(100, 100, 450, 300);
+		frameQ9.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIQuizz9.class.getResource("/image/livre.png")));
+		frameQ9.setBounds(100, 100, 674, 520);
 		frameQ9.setTitle("Quel livre est fait pour vous ? (9/10)");
 		frameQ9.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameQ9.getContentPane().setLayout(null);
@@ -54,39 +60,44 @@ public class GUIQuizz9 {
 		lblNewLabel.setBounds(10, 10, 416, 15);
 		frameQ9.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/Montagne.jpg")));
-		btnNewButton.setBounds(10, 35, 329, 181);
-		frameQ9.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/plage-de-reve-maldives.jpg")));
-		btnNewButton_1.setBounds(389, 177, 252, 170);
-		frameQ9.getContentPane().add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/detail_ibiza-02.jpg")));
-		btnNewButton_2.setBounds(358, 42, 306, 125);
-		frameQ9.getContentPane().add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("");
-		btnNewButton_3.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/papiers-peints-chalet-montagne.jpg.jpg")));
-		btnNewButton_3.setBounds(10, 226, 342, 189);
-		frameQ9.getContentPane().add(btnNewButton_3);
-		
-		JButton btnNewButton_4 = new JButton("Valider");
+		JButton btnNewButton_4 = new JButton("Suivant");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String Q9 = buttonGroup.getSelection().getActionCommand();
+				System.out.println(Q9);
 				frameQ9.dispose();
 				GUIQuizz10.main(null);
 			}
 		});
-		btnNewButton_4.setBounds(485, 381, 85, 21);
+		btnNewButton_4.setBounds(427, 398, 85, 21);
 		frameQ9.getContentPane().add(btnNewButton_4);
+		
+		JToggleButton tglbtnNewToggleButton = new JToggleButton("");
+		buttonGroup.add(tglbtnNewToggleButton);
+		tglbtnNewToggleButton.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/Montagne.jpg")));
+		tglbtnNewToggleButton.setBounds(20, 36, 306, 197);
+		frameQ9.getContentPane().add(tglbtnNewToggleButton);
+		tglbtnNewToggleButton.setActionCommand("Montagne");
+		
+		JToggleButton tglbtnNewToggleButton_1 = new JToggleButton("");
+		buttonGroup.add(tglbtnNewToggleButton_1);
+		tglbtnNewToggleButton_1.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/detail_ibiza-02.jpg")));
+		tglbtnNewToggleButton_1.setBounds(341, 48, 239, 131);
+		frameQ9.getContentPane().add(tglbtnNewToggleButton_1);
+		tglbtnNewToggleButton_1.setActionCommand("Ibiza");
+		
+		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("");
+		buttonGroup.add(tglbtnNewToggleButton_2);
+		tglbtnNewToggleButton_2.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/papiers-peints-chalet-montagne.jpg.jpg")));
+		tglbtnNewToggleButton_2.setBounds(23, 260, 353, 209);
+		frameQ9.getContentPane().add(tglbtnNewToggleButton_2);
+		tglbtnNewToggleButton_2.setActionCommand("Chalet");
+		
+		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("");
+		buttonGroup.add(tglbtnNewToggleButton_3);
+		tglbtnNewToggleButton_3.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/plage-de-reve-maldives.jpg")));
+		tglbtnNewToggleButton_3.setBounds(386, 198, 250, 175);
+		frameQ9.getContentPane().add(tglbtnNewToggleButton_3);
+		tglbtnNewToggleButton_3.setActionCommand("Place");
 	}
-
 }

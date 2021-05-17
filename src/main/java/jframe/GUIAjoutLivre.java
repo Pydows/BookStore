@@ -10,8 +10,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
-public class GUIAdmin {
+public class GUIAjoutLivre {
 
 	private JFrame frmAjoutDunLivre;
 	private JTextField textField;
@@ -26,7 +27,7 @@ public class GUIAdmin {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUIAdmin window = new GUIAdmin();
+					GUIAjoutLivre window = new GUIAjoutLivre();
 					window.frmAjoutDunLivre.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +39,7 @@ public class GUIAdmin {
 	/**
 	 * Create the application.
 	 */
-	public GUIAdmin() {
+	public GUIAjoutLivre() {
 		initialize();
 	}
 
@@ -91,6 +92,11 @@ public class GUIAdmin {
 		textField_3.setBounds(142, 129, 136, 20);
 		panel.add(textField_3);
 		
+		JLabel error = new JLabel("");
+		error.setForeground(Color.RED);
+		error.setBounds(10, 193, 198, 14);
+		panel.add(error);
+		
 		JButton btnNewButton = new JButton("Ajout");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -100,12 +106,12 @@ public class GUIAdmin {
 				String prixLivre= textField_3.getText();
 				if(nomLivre.equals("") || nomAuteur.equals("") || dateSortie.equals("") || prixLivre.equals(""))
 				{
-					System.out.println("Veuillez remplir tous les champs !");
+					error.setText("Veuillez remplir tous les champs !");
 				}
 				else {
 					System.out.println(nomLivre +" "+ nomAuteur +" "+  dateSortie+ " "+prixLivre);
 					frmAjoutDunLivre.dispose();
-					GUIAdmin.main(null);				
+					GUIAjoutLivre.main(null);				
 				}
 			}
 		});
@@ -120,5 +126,7 @@ public class GUIAdmin {
 		});
 		btnFermer.setBounds(218, 183, 84, 23);
 		panel.add(btnFermer);
+		
+		
 	}
 }

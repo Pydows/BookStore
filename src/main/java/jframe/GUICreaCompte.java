@@ -15,6 +15,7 @@ import dao.DAOCompte;
 import dao.DAOLecteur;
 import metier.Compte;
 import metier.Lecteur;
+import java.awt.Color;
 
 public class GUICreaCompte {
 
@@ -96,7 +97,7 @@ public class GUICreaCompte {
 				else
 				{
 					System.out.println("Création de Compte confirmé");
-					DAOl.save(nouveauC);
+//					DAOl.save(nouveauC);
 					frmCrationDeCompte.dispose();
 					GUILogin.main(null);
 				}
@@ -106,6 +107,7 @@ public class GUICreaCompte {
 		panel.add(btnCrationDeCompte);
 		
 		success = new JLabel("");
+		success.setForeground(Color.RED);
 		success.setBounds(29, 117, 210, 14);
 		panel.add(success);
 		
