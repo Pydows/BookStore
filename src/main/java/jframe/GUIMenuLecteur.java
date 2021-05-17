@@ -63,6 +63,16 @@ public class GUIMenuLecteur {
 		});
 		btnNewButton_1.setBounds(71, 136, 273, 59);
 		frmMenuLecteur.getContentPane().add(btnNewButton_1);
-	}
+		
+		JButton btnSeDconnecter = new JButton("Se d\u00E9connecter");
+		btnSeDconnecter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmMenuLecteur.dispose();
+				GUILogin.main(null);
 
+			}
+		});
+		btnSeDconnecter.setBounds(286, 206, 138, 44);
+		frmMenuLecteur.getContentPane().add(btnSeDconnecter);
+	}
 }

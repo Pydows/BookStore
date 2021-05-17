@@ -139,7 +139,8 @@ public class GUIVoteLivre {
 				String NoteLivre = buttonNoteLivre.getSelection().getActionCommand();
 				if(e.getActionCommand().equals("Valider") && NoteLivre != null) {
 					System.out.println(NoteLivre + "\n " + AvisLivre);
-					frmEvaluationDunLivre.dispose();		
+					frmEvaluationDunLivre.dispose();
+					GUIMenuLecteur.main(null);
 				}
 				else {
 					System.out.println("Veuillez attribuer une note svp");

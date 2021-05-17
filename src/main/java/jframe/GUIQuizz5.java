@@ -65,7 +65,7 @@ public class GUIQuizz5 {
 					System.out.println("Vous préferez plus un livre qui parle d'" + 
 							Q5);
 					frameQ5.dispose();
-//					GUIQuizz6.main(null);
+					GUIQuizz6.main(null);
 				}
 				
 			}
