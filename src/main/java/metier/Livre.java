@@ -10,7 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.*;
 
+@XmlRootElement(name = "livre")
+@XmlAccessorType (XmlAccessType.FIELD)
 @Entity
 public class Livre {
 	@Id
