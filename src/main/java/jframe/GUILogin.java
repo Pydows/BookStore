@@ -82,11 +82,16 @@ public class GUILogin {
 				String user = userText.getText();
 				String password = passwordText.getText();
 				
-				if (user.equals("Fred")&& password.equals("test"))
+				if (user.equals("adm")&& password.equals("adm"))
 				{
 					// Le changement de page
 					frame.dispose();
-					GUIQuizz1.main(null);
+					GUIAdmin.main(null);
+				}
+				else if (user.equals("lec")&& password.equals("lec"))
+				{
+					frame.dispose();
+					GUILecteur.main(null);
 				}
 				else
 				{

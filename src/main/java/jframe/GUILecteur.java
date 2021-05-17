@@ -12,9 +12,9 @@ import java.awt.event.ActionEvent;
 public class GUILecteur {
 
 	private JFrame frmInscriptionDunLecteur;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textField_nomLecteur;
+	private JTextField textField_prenomLecteur;
+	private JTextField textField_DNLecteur;
 
 	/**
 	 * Launch the application.
@@ -53,38 +53,49 @@ public class GUILecteur {
 		lblNewLabel.setBounds(92, 11, 246, 14);
 		frmInscriptionDunLecteur.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nom (*)");
-		lblNewLabel_1.setBounds(10, 36, 46, 14);
-		frmInscriptionDunLecteur.getContentPane().add(lblNewLabel_1);
+		JLabel lblNewLabel_nomLecteur = new JLabel("Nom (*)");
+		lblNewLabel_nomLecteur.setBounds(10, 36, 46, 14);
+		frmInscriptionDunLecteur.getContentPane().add(lblNewLabel_nomLecteur);
 		
-		JLabel lblNewLabel_2 = new JLabel("Prenom (*)");
-		lblNewLabel_2.setBounds(10, 72, 146, 14);
-		frmInscriptionDunLecteur.getContentPane().add(lblNewLabel_2);
+		JLabel lblNewLabel_prenomLecteur = new JLabel("Prenom (*)");
+		lblNewLabel_prenomLecteur.setBounds(10, 72, 146, 14);
+		frmInscriptionDunLecteur.getContentPane().add(lblNewLabel_prenomLecteur);
 		
-		JLabel lblNewLabel_3 = new JLabel("Date de Naissance (DD/MM/YYYY)");
-		lblNewLabel_3.setBounds(10, 108, 252, 14);
-		frmInscriptionDunLecteur.getContentPane().add(lblNewLabel_3);
+		JLabel lblNewLabel_DNLecteur = new JLabel("Date de Naissance (DD/MM/YYYY)");
+		lblNewLabel_DNLecteur.setBounds(10, 108, 252, 14);
+		frmInscriptionDunLecteur.getContentPane().add(lblNewLabel_DNLecteur);
 		
-		textField = new JTextField();
-		textField.setBounds(207, 36, 174, 20);
-		frmInscriptionDunLecteur.getContentPane().add(textField);
-		textField.setColumns(10);
+		textField_nomLecteur = new JTextField();
+		textField_nomLecteur.setBounds(207, 36, 174, 20);
+		frmInscriptionDunLecteur.getContentPane().add(textField_nomLecteur);
+		textField_nomLecteur.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(207, 69, 174, 20);
-		frmInscriptionDunLecteur.getContentPane().add(textField_1);
+		textField_prenomLecteur = new JTextField();
+		textField_prenomLecteur.setColumns(10);
+		textField_prenomLecteur.setBounds(207, 69, 174, 20);
+		frmInscriptionDunLecteur.getContentPane().add(textField_prenomLecteur);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(207, 105, 174, 20);
-		frmInscriptionDunLecteur.getContentPane().add(textField_2);
+		textField_DNLecteur = new JTextField();
+		textField_DNLecteur.setColumns(10);
+		textField_DNLecteur.setBounds(207, 105, 174, 20);
+		frmInscriptionDunLecteur.getContentPane().add(textField_DNLecteur);
 		
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmInscriptionDunLecteur.dispose();
-				GUIMenuLecteur.main(null);
+				String nomLec=textField_nomLecteur.getText();
+				String prenomLec=textField_prenomLecteur.getText();
+				String dateNaissanceLec=textField_DNLecteur.getText();
+				if(nomLec.equals("") || prenomLec.equals(""))
+				{
+					System.out.println("Veuillez rentrer un nom et prénom !");
+				}
+				else {
+					System.out.println(nomLec +" "+ prenomLec +" "+  dateNaissanceLec);
+					frmInscriptionDunLecteur.dispose();
+					GUIMenuLecteur.main(null);				
+				}
+				
 			}
 		});
 		btnNewButton.setBounds(10, 137, 371, 23);
