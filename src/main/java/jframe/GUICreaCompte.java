@@ -11,6 +11,11 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import dao.DAOCompte;
+import dao.DAOLecteur;
+import metier.Compte;
+import metier.Lecteur;
+
 public class GUICreaCompte {
 
 	private JFrame frmCrationDeCompte;
@@ -22,6 +27,7 @@ public class GUICreaCompte {
 	private JButton btnCrationDeCompte;
 	private JLabel success;
 	private JButton btnFermer;
+	private DAOLecteur DAOl = new DAOLecteur();
 	
 	/**
 	 * Launch the application.
@@ -51,7 +57,7 @@ public class GUICreaCompte {
 	 */
 	private void initialize() {
 		panel = new JPanel();
-		frmCrationDeCompte = new JFrame("Page de Login");
+		frmCrationDeCompte = new JFrame("Création de compte");
 		frmCrationDeCompte.setSize(365, 182);
 		frmCrationDeCompte.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCrationDeCompte.getContentPane().add(panel);
@@ -74,27 +80,23 @@ public class GUICreaCompte {
 		passwordText.setBounds(159, 55, 141, 20);
 		panel.add(passwordText);
 		
-		
 		btnCrationDeCompte = new JButton("Creation de Compte");
 		btnCrationDeCompte.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String user = userText.getText();
-				String password = passwordLabel.getText();
-//				String passwordVerif = passwordText.getText();
+				String password = passwordText.getText();
+				Lecteur nouveauC = new Lecteur(user, password);
 				
 				if (user.equals("") || password.equals(""))
 				{
 					success.setText("Veuillez remplir les champs");
 				}
-//				else if (passwordVerif.compareToIgnoreCase(password)== passwordVerif.length()-1 )
-//				{
-//					success.setText("Veuillez remplir les même password");
-//				}
 				else
 				{
 					System.out.println("Création de Compte confirmé");
+					DAOl.save(nouveauC);
 					frmCrationDeCompte.dispose();
 					GUILogin.main(null);
 				}
