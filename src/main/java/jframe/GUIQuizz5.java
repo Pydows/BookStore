@@ -62,7 +62,7 @@ public class GUIQuizz5 {
 			public void actionPerformed(ActionEvent e) {
 				String Q5 = buttonGroup.getSelection().getActionCommand();
 				if (e.getActionCommand().equals("Valider")) {
-					System.out.println("Vous preferez plus un livre qui parle d'" + 
+					System.out.println("Vous préferez plus un livre qui parle d'" + 
 							Q5);
 					frameQ5.dispose();
 //					GUIQuizz6.main(null);
