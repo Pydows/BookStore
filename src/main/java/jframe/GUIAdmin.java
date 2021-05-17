@@ -48,7 +48,7 @@ public class GUIAdmin {
 	private void initialize() {
 		frmAjoutDunLivre = new JFrame();
 		frmAjoutDunLivre.setTitle("Ajout d'un livre");
-		frmAjoutDunLivre.setBounds(100, 100, 328, 236);
+		frmAjoutDunLivre.setBounds(100, 100, 328, 256);
 		frmAjoutDunLivre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panel = new JPanel();
@@ -94,9 +94,31 @@ public class GUIAdmin {
 		JButton btnNewButton = new JButton("Ajout");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nomLivre = textField.getText();
+				String nomAuteur= textField_1.getText();
+				String dateSortie= textField_2.getText();
+				String prixLivre= textField_3.getText();
+				if(nomLivre.equals("") || nomAuteur.equals("") || dateSortie.equals("") || prixLivre.equals(""))
+				{
+					System.out.println("Veuillez remplir tous les champs !");
+				}
+				else {
+					System.out.println(nomLivre +" "+ nomAuteur +" "+  dateSortie+ " "+prixLivre);
+					frmAjoutDunLivre.dispose();
+					GUIAdmin.main(null);				
+				}
 			}
 		});
-		btnNewButton.setBounds(22, 161, 256, 23);
+		btnNewButton.setBounds(22, 159, 256, 23);
 		panel.add(btnNewButton);
+		
+		JButton btnFermer = new JButton("Fermer");
+		btnFermer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmAjoutDunLivre.dispose();
+			}
+		});
+		btnFermer.setBounds(218, 183, 84, 23);
+		panel.add(btnFermer);
 	}
 }
