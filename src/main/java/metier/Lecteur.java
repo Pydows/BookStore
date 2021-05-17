@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -12,7 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="id",referencedColumnName = "id")
+@PrimaryKeyJoinColumn(name="id_compte")
+@DiscriminatorValue(value="Lecteur")
 public class Lecteur extends Compte{
 	
 	private String nom, prenom;
@@ -30,6 +32,11 @@ public class Lecteur extends Compte{
 		this.dateNaissance = dateNaissance;
 		this.panier = panier;
 		this.totalAchat = totalAchat;
+	}
+	
+	public Lecteur(String login, String password)
+	{
+		super(login, password);
 	}
 
 	public Lecteur() {
