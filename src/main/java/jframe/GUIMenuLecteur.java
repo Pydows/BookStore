@@ -68,7 +68,7 @@ public class GUIMenuLecteur {
 		btnSeDconnecter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmMenuLecteur.dispose();
-				GUILogin.main(null);
+				GUIMenuLecteur.main(null);
 
 			}
 		});
