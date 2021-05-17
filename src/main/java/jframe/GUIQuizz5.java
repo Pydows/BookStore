@@ -57,11 +57,11 @@ public class GUIQuizz5 {
 		lblNewLabel.setBounds(290, 24, 671, 14);
 		frameQ5.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton_4 = new JButton("Valider");
+		JButton btnNewButton_4 = new JButton("Suivant");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String Q5 = buttonGroup.getSelection().getActionCommand();
-				if (e.getActionCommand().equals("Valider")) {
+				if (e.getActionCommand().equals("Suivant")) {
 					System.out.println("Vous préferez plus un livre qui parle d'" + 
 							Q5);
 					frameQ5.dispose();

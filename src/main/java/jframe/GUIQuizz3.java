@@ -82,16 +82,15 @@ public class GUIQuizz3 {
 		rdbtnRecueilDePosie.setActionCommand("ennuye");
 
 
-		JButton btnNewButton = new JButton("Valider");
+		JButton btnNewButton = new JButton("Suivant");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getActionCommand().equals("Valider")) {
 					String Q3 = buttonGroup.getSelection().getActionCommand();
 					System.out.println("Aujourd'hui vous etes plutôt " + 
 							Q3);
 					frameQ3.dispose();
 					GUIQuizz4.main(null);
-				}
+				
 			}
 		});
 

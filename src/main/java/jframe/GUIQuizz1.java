@@ -88,16 +88,16 @@ public class GUIQuizz1 {
 		rdbtnPieceDeTheatre.setActionCommand("piece de theatre");
 
 
-		JButton btnNewButton = new JButton("Valider");
+		JButton btnNewButton = new JButton("Suivant");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getActionCommand().equals("Valider")) {
-					String Q1 = buttonGroup.getSelection().getActionCommand();
-					System.out.println("Vous voulez une recommandation pour un " + 
-							Q1);
-					frameQ1.dispose();
-					GUIQuizz2.main(null);
-				}
+
+				String Q1 = buttonGroup.getSelection().getActionCommand();
+				System.out.println("Vous voulez une recommandation pour un " + 
+						Q1);
+				frameQ1.dispose();
+				GUIQuizz2.main(null);
+
 			}
 		});
 

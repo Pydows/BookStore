@@ -58,16 +58,15 @@ public class GUIQuizz2 {
 		lblNewLabel.setBounds(43, 11, 351, 14);
 		frameQ2.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton_4 = new JButton("Valider");
+		JButton btnNewButton_4 = new JButton("Suivant");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String Q2 = buttonGroup.getSelection().getActionCommand();
-				if (e.getActionCommand().equals("Valider")) {
 					System.out.println("Aujourd'hui, vous vous sentez plus d'humeur " + 
 							Q2);
 					frameQ2.dispose();
 					GUIQuizz3.main(null);
-				}
+	
 				
 			}
 		});

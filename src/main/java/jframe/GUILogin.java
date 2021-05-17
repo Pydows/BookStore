@@ -12,6 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import jframe.GUICreaCompte;
+import java.awt.Color;
 
 public class GUILogin {
 
@@ -89,7 +90,7 @@ public class GUILogin {
 				{
 					// Le changement de page
 					frame.dispose();
-					GUIAdmin.main(null);
+					GUIAjoutLivre.main(null);
 				}
 				else if (user.equals("lec")&& password.equals("lec"))
 				{
@@ -106,6 +107,7 @@ public class GUILogin {
 		panel.add(button);
 		
 		success = new JLabel("");
+		success.setForeground(Color.RED);
 		success.setBounds(29, 117, 210, 14);
 		panel.add(success);
 		

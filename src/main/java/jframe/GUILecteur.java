@@ -80,6 +80,10 @@ public class GUILecteur {
 		textField_DNLecteur.setBounds(207, 105, 174, 20);
 		frmInscriptionDunLecteur.getContentPane().add(textField_DNLecteur);
 		
+		JLabel error = new JLabel("");
+		error.setBounds(153, 171, 228, 14);
+		frmInscriptionDunLecteur.getContentPane().add(error);
+		
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -88,7 +92,7 @@ public class GUILecteur {
 				String dateNaissanceLec=textField_DNLecteur.getText();
 				if(nomLec.equals("") || prenomLec.equals(""))
 				{
-					System.out.println("Veuillez rentrer un nom et prénom !");
+					error.setText("Veuillez rentrer un nom et prénom !");
 				}
 				else {
 					System.out.println(nomLec +" "+ prenomLec +" "+  dateNaissanceLec);
@@ -104,6 +108,8 @@ public class GUILecteur {
 		JLabel lblNewLabel_4 = new JLabel("* : Obligatoire");
 		lblNewLabel_4.setBounds(10, 171, 167, 14);
 		frmInscriptionDunLecteur.getContentPane().add(lblNewLabel_4);
+		
+		
 	}
 
 }
