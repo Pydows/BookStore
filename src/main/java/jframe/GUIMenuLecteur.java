@@ -45,10 +45,16 @@ public class GUIMenuLecteur {
 		frmMenuLecteur.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("Voter pour un livre");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmMenuLecteur.dispose();
+				GUIVoteLivre.main(null);
+			}
+		});
 		btnNewButton.setBounds(71, 45, 273, 59);
 		frmMenuLecteur.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("R\u00E9pondre au Quizz");
+		JButton btnNewButton_1 = new JButton("Répondre au Quizz");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmMenuLecteur.dispose();
