@@ -54,7 +54,7 @@ public class GUIMenuLecteur {
 		btnNewButton.setBounds(71, 45, 273, 59);
 		frmMenuLecteur.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Répondre au Quizz");
+		JButton btnNewButton_1 = new JButton("Repondre au Quizz");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmMenuLecteur.dispose();
@@ -64,12 +64,11 @@ public class GUIMenuLecteur {
 		btnNewButton_1.setBounds(71, 136, 273, 59);
 		frmMenuLecteur.getContentPane().add(btnNewButton_1);
 		
-		JButton btnSeDconnecter = new JButton("Se d\u00E9connecter");
+		JButton btnSeDconnecter = new JButton("Se deconnecter");
 		btnSeDconnecter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmMenuLecteur.dispose();
-				GUIMenuLecteur.main(null);
-
+				GUILogin.main(null);
 			}
 		});
 		btnSeDconnecter.setBounds(286, 206, 138, 44);

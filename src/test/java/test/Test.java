@@ -5,13 +5,14 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import dao.DAOAdministrateur;
+import jframe.GUIBienvenue;
 import metier.Administrateur;
 
 
 public class Test {
 
 	public static void main(String[] args) {
-		Administrateur a = new Administrateur("admin1", "treeerfe");
+		Administrateur a = new Administrateur("adm", "adm");
 		DAOAdministrateur Daoadmintest = new DAOAdministrateur();
 		
 		

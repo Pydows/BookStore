@@ -32,8 +32,8 @@ public class Lecteur extends Compte{
 		this.panier = panier;
 		this.totalAchat = totalAchat;
 	}
-	public Lecteur(String nom, String prenom, LocalDate dateNaissance) {
-		super();
+	public Lecteur(String login, String password ,String nom, String prenom, LocalDate dateNaissance) {
+		super(login, password);
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
