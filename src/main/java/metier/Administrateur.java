@@ -3,9 +3,13 @@ package metier;
 import java.time.LocalDate;
 
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 import dao.DAOLivre;
 
+@Entity
+@PrimaryKeyJoinColumn(name="id_compte")
 @DiscriminatorValue("admin")
 public class Administrateur extends Compte {
 

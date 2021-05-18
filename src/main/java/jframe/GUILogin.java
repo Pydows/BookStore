@@ -90,7 +90,7 @@ public class GUILogin {
 				{
 					// Le changement de page
 					frame.dispose();
-					GUIAjoutLivre.main(null);
+					GUIMenuAdmin.main(null);
 				}
 				else if (user.equals("lec")&& password.equals("lec"))
 				{

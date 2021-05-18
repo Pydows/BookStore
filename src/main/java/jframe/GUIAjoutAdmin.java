@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import dao.DAOAdministrateur;
+import metier.Administrateur;
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -16,6 +20,7 @@ public class GUIAjoutAdmin {
 	private JFrame frmAjoutAdministrateur;
 	private JTextField textField;
 	private JPasswordField passwordField;
+	private DAOAdministrateur DAOadmin = new DAOAdministrateur();
 
 	/**
 	 * Launch the application.
@@ -77,13 +82,16 @@ public class GUIAjoutAdmin {
 			public void actionPerformed(ActionEvent e) {
 				String NvUserAdmin = textField.getText();
 				String NvPasswordAdmin = passwordField.getText();
+				Administrateur nvAdmin = new Administrateur(NvUserAdmin, NvPasswordAdmin);
 				
 				if (NvUserAdmin.equals("")||NvPasswordAdmin.equals(""))
 				{
+					
 					error.setText("Veuillez remplir tous les champs svp");					
 				}
 				else
 				{
+					DAOadmin.save(nvAdmin);
 					frmAjoutAdministrateur.dispose();
 					GUILogin.main(null);
 					
