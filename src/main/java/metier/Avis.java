@@ -22,19 +22,14 @@ public class Avis {
 	@ManyToOne
 	private Lecteur lecteur;
 	
-	public Avis(double note, String commentaire) {
-		this.note = note;
-		this.commentaire = commentaire;
-		livre.setNbNotes((livre.getNbNotes() +1));
-		livre.setNote((livre.getNote() + note)/livre.getNbNotes());
-	}
-	
-	
+		
 	public Avis(double note, String commentaire, Livre livre, Lecteur lecteur) {
 		this.note = note;
 		this.commentaire = commentaire;
 		this.livre = livre;
 		this.lecteur = lecteur;
+		livre.setNbNotes((livre.getNbNotes() +1));
+		livre.setNote((livre.getNote() + note)/livre.getNbNotes());
 	}
 
 
