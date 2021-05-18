@@ -74,20 +74,23 @@ public class GUIQuizz10 {
 		buttonGroup.add(rdbtnNewRadioButton_2);
 		rdbtnNewRadioButton_2.setBounds(10, 121, 103, 21);
 		frameQ10.getContentPane().add(rdbtnNewRadioButton_2);
-		rdbtnNewRadioButton_2.setActionCommand("sensibilité");
+		rdbtnNewRadioButton_2.setActionCommand("sensible");
 		
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Son charisme");
 		buttonGroup.add(rdbtnNewRadioButton_3);
 		rdbtnNewRadioButton_3.setBounds(10, 166, 226, 21);
 		frameQ10.getContentPane().add(rdbtnNewRadioButton_3);
-		rdbtnNewRadioButton_3.setActionCommand("charisme");
+		rdbtnNewRadioButton_3.setActionCommand("charme");
 		
 		JButton btnNewButton = new JButton("Finir");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String Q10 = buttonGroup.getSelection().getActionCommand();
-				System.out.println(Q10);
+				//System.out.println(Q10);
+				GUIAffichageLivres.setRequete(GUIAffichageLivres.getRequete()+Q10);
+				
 				frameQ10.dispose();
+				GUIAffichageLivres.main(null);
 			}
 		});
 		btnNewButton.setBounds(341, 232, 85, 21);

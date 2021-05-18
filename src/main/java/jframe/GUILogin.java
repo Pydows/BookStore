@@ -102,7 +102,7 @@ public class GUILogin {
 				else if (c instanceof Lecteur)
 				{
 					frame.dispose();
-					GUIMenuLecteur.main(null);
+					GUIMenuLecteur.main(c);
 				}
 				else
 				{

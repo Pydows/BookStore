@@ -62,16 +62,19 @@ public class GUIQuizz5 {
 			public void actionPerformed(ActionEvent e) {
 				String Q5 = buttonGroup.getSelection().getActionCommand();
 				if (e.getActionCommand().equals("Suivant")) {
-					System.out.println("Vous préferez plus un livre qui parle d'" + 
-							Q5);
+					//System.out.println("Vous prï¿½ferez plus un livre qui parle d'" + Q5);
+					GUIAffichageLivres.setRequete(GUIAffichageLivres.getRequete()+Q5);
+					
 					frameQ5.dispose();
 					GUIQuizz6.main(null);
 				}
 				
 			}
 		});
+		
 		btnNewButton_4.setBounds(10, 540, 840, 23);
 		frameQ5.getContentPane().add(btnNewButton_4);
+		
 		
 		JCheckBox btnChill = new JCheckBox("Chill");
 		btnChill.setContentAreaFilled(false);
@@ -79,7 +82,7 @@ public class GUIQuizz5 {
 		btnChill.setIcon(new ImageIcon(GUIQuizz5.class.getResource("/image/image1.png")));
 		btnChill.setBounds(97, 60, 164, 124);
 		frameQ5.getContentPane().add(btnChill);
-		btnChill.setActionCommand("histoire chill");
+		btnChill.setActionCommand("calme+");
 		
 		JCheckBox btnamitie = new JCheckBox("Amitie");
 		btnamitie.setContentAreaFilled(false);
@@ -87,7 +90,7 @@ public class GUIQuizz5 {
 		btnamitie.setIcon(new ImageIcon(GUIQuizz5.class.getResource("/image/image3.png")));
 		btnamitie.setBounds(655, 77, 195, 433);
 		frameQ5.getContentPane().add(btnamitie);
-		btnamitie.setActionCommand("amitié");
+		btnamitie.setActionCommand("ami+");
 		
 		JCheckBox btnguerre = new JCheckBox("flingue");
 		btnguerre.setContentAreaFilled(false);
@@ -95,7 +98,7 @@ public class GUIQuizz5 {
 		btnguerre.setIcon(new ImageIcon(GUIQuizz5.class.getResource("/image/image4.png")));
 		btnguerre.setBounds(97, 249, 200, 178);
 		frameQ5.getContentPane().add(btnguerre);
-		btnguerre.setActionCommand("histoire de guerre");
+		btnguerre.setActionCommand("guerre+");
 		
 		JCheckBox btnAventure = new JCheckBox("Aventure");
 		btnAventure.setContentAreaFilled(false);
@@ -103,7 +106,7 @@ public class GUIQuizz5 {
 		btnAventure.setIcon(new ImageIcon(GUIQuizz5.class.getResource("/image/image5.png")));
 		btnAventure.setBounds(397, 226, 180, 281);
 		frameQ5.getContentPane().add(btnAventure);
-		btnAventure.setActionCommand("aventure");
+		btnAventure.setActionCommand("aventure+");
 		
 		JCheckBox btnFantastique = new JCheckBox("Fantastique");
 		btnFantastique.setContentAreaFilled(false);
@@ -111,6 +114,9 @@ public class GUIQuizz5 {
 		btnFantastique.setIcon(new ImageIcon(GUIQuizz5.class.getResource("/image/image2.png")));
 		btnFantastique.setBounds(397, 77, 180, 124);
 		frameQ5.getContentPane().add(btnFantastique);
-		btnFantastique.setActionCommand("histoire fantastique");
+		btnFantastique.setActionCommand("fantastique+");
+		
+
+	
 	}
 }

@@ -16,14 +16,13 @@ import com.google.gson.JsonParser;
 
 import metier.Livre2;
 
-public class testjson {
+public class TestJson {
 
 
 	public static void main(String[] args) throws IOException {
-		Livre2 livre;
 		Gson g = new Gson();
 
-		String sURL = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyAGLF6JPs832TP11n22Xod8APdAy4hEHbc"; //just a string
+		String sURL = "https://www.googleapis.com/books/v1/volumes?q=Harry+Potter&key=AIzaSyAGLF6JPs832TP11n22Xod8APdAy4hEHbc"; //just a string
 
 		// Connect to the URL using java's native library
 		URL url = new URL(sURL);

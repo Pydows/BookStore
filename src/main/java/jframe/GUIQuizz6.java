@@ -64,34 +64,35 @@ public class GUIQuizz6 {
 		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnNewRadioButton.setBounds(16, 52, 203, 29);
 		frameQ6.getContentPane().add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setActionCommand("histoire rapide à lire");
+		rdbtnNewRadioButton.setActionCommand("");
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Plut\u00F4t longue qui te tiendra sur de nombreuses pages");
 		buttonGroup.add(rdbtnNewRadioButton_1);
 		rdbtnNewRadioButton_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnNewRadioButton_1.setBounds(16, 83, 410, 44);
 		frameQ6.getContentPane().add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.setActionCommand("histoire longue");
+		rdbtnNewRadioButton_1.setActionCommand("");
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Style saga, qui t'accompagnera sur 3-5 tomes");
 		buttonGroup.add(rdbtnNewRadioButton_2);
 		rdbtnNewRadioButton_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnNewRadioButton_2.setBounds(16, 129, 410, 44);
 		frameQ6.getContentPane().add(rdbtnNewRadioButton_2);
-		rdbtnNewRadioButton_2.setActionCommand("histoire style saga");
+		rdbtnNewRadioButton_2.setActionCommand("");
 		
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Que tu pourras suivre sur de nombreux tomes et de nombreuses ann\u00E9es");
 		buttonGroup.add(rdbtnNewRadioButton_3);
 		rdbtnNewRadioButton_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnNewRadioButton_3.setBounds(16, 175, 410, 44);
 		frameQ6.getContentPane().add(rdbtnNewRadioButton_3);
-		rdbtnNewRadioButton_3.setActionCommand("histoire sur plusieurs tomes");
+		rdbtnNewRadioButton_3.setActionCommand("");
 		
 		JButton btnNewButton = new JButton("Suivant");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String Q6 = buttonGroup.getSelection().getActionCommand();
-				System.out.println(Q6);
+				//GUIAffichageLivres.setRequete(GUIAffichageLivres.getRequete()+Q6);
+				//System.out.println(Q6);
 				frameQ6.dispose();
 				GUIQuizz7.main(null);
 			}

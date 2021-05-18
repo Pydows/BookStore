@@ -6,8 +6,10 @@ import java.util.List;
 public class Infos {
 	private String title;
 	private List<String> authors;
-	private String description;
+	private String description = "";
 	private String publishedDate;
+	
+	
 	public String getTitle() {
 		return title;
 	}
@@ -35,8 +37,8 @@ public class Infos {
 	
 	@Override
 	public String toString() {
-		return "Infos [title=" + title + ", authors=" + authors + ", description=" + description + ", publishedDate="
-				+ publishedDate + "]";
+		return "titre=" + title + ", auteurs=" + authors + ", description=" + description + ", publishedDate="
+				+ publishedDate;
 	}
 	
 	

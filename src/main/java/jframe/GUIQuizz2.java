@@ -62,8 +62,9 @@ public class GUIQuizz2 {
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String Q2 = buttonGroup.getSelection().getActionCommand();
-					System.out.println("Aujourd'hui, vous vous sentez plus d'humeur " + 
-							Q2);
+					//System.out.println("Aujourd'hui, vous vous sentez plus d'humeur " + Q2);
+				GUIAffichageLivres.setRequete(GUIAffichageLivres.getRequete()+Q2);
+				
 					frameQ2.dispose();
 					GUIQuizz3.main(null);
 	
@@ -85,7 +86,7 @@ public class GUIQuizz2 {
 		btnNewButton.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/image/home.png")));
 		btnNewButton.setBounds(24, 26, 180, 124);
 		frameQ2.getContentPane().add(btnNewButton);
-		btnNewButton.setActionCommand("Maison");
+		btnNewButton.setActionCommand("calme+");
 		
 		JLabel lblNewLabel_1_1 = new JLabel("A l'etranger");
 		lblNewLabel_1_1.setForeground(Color.BLUE);
@@ -99,7 +100,7 @@ public class GUIQuizz2 {
 		btnNewButton_2.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/image/paysetranger.png")));
 		btnNewButton_2.setBounds(214, 28, 180, 124);
 		frameQ2.getContentPane().add(btnNewButton_2);
-		btnNewButton_2.setActionCommand("Etranger");
+		btnNewButton_2.setActionCommand("voyage+");
 		
 		JLabel lblNewLabel_1_2 = new JLabel("A la Plage");
 		lblNewLabel_1_2.setForeground(Color.BLUE);
@@ -113,7 +114,7 @@ public class GUIQuizz2 {
 		btnNewButton_1.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/image/plage.png")));
 		btnNewButton_1.setBounds(24, 153, 180, 124);
 		frameQ2.getContentPane().add(btnNewButton_1);
-		btnNewButton_1.setActionCommand("Plage");
+		btnNewButton_1.setActionCommand("plage+");
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("Dans la nature la nuit");
 		lblNewLabel_1_2_1.setForeground(Color.LIGHT_GRAY);
@@ -127,6 +128,6 @@ public class GUIQuizz2 {
 		btnNewButton_3.setIcon(new ImageIcon(GUIQuizz2.class.getResource("/image/nuit.png")));
 		btnNewButton_3.setBounds(214, 153, 180, 124);
 		frameQ2.getContentPane().add(btnNewButton_3);
-		btnNewButton_3.setActionCommand("Nuit");
+		btnNewButton_3.setActionCommand("nuit+");
 	}
 }

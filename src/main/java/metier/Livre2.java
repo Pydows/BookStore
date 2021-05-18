@@ -28,7 +28,7 @@ public class Livre2 {
 
 	@Override
 	public String toString() {
-		return "Livre2 [id=" + id + ", volumeInfo=" + volumeInfo + "]";
+		return "[" + volumeInfo.toString() + ", id=" + id +"]";
 	}
 
 	

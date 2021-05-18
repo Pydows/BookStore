@@ -3,6 +3,9 @@ package jframe;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
+import metier.Compte;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -14,11 +17,11 @@ public class GUIMenuLecteur {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(Compte c) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUIMenuLecteur window = new GUIMenuLecteur();
+					GUIMenuLecteur window = new GUIMenuLecteur(c);
 					window.frmMenuLecteur.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,14 +33,14 @@ public class GUIMenuLecteur {
 	/**
 	 * Create the application.
 	 */
-	public GUIMenuLecteur() {
-		initialize();
+	public GUIMenuLecteur(Compte c) {
+		initialize(c);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Compte c) {
 		frmMenuLecteur = new JFrame();
 		frmMenuLecteur.setTitle("Menu Lecteur");
 		frmMenuLecteur.setBounds(100, 100, 450, 300);
@@ -48,7 +51,7 @@ public class GUIMenuLecteur {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmMenuLecteur.dispose();
-				GUIVoteLivre.main(null);
+				GUIVoteLivre.main(c);
 			}
 		});
 		btnNewButton.setBounds(71, 45, 273, 59);

@@ -51,6 +51,10 @@ public class Livre {
 
 	public Livre() {
 	}
+	
+	public Livre(String titre) {
+		this.titre = titre;
+	}
 
 	public int getId() {
 		return id;

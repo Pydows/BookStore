@@ -49,7 +49,7 @@ public class GUIQuizz9 {
 	private void initialize() {
 		frameQ9 = new JFrame();
 		frameQ9.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIQuizz9.class.getResource("/image/livre.png")));
-		frameQ9.setBounds(100, 100, 674, 520);
+		frameQ9.setBounds(100, 100, 718, 560);
 		frameQ9.setTitle("Quel livre est fait pour vous ? (9/10)");
 		frameQ9.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frameQ9.getContentPane().setLayout(null);
@@ -64,40 +64,49 @@ public class GUIQuizz9 {
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String Q9 = buttonGroup.getSelection().getActionCommand();
-				System.out.println(Q9);
+				//System.out.println(Q9);
+				GUIAffichageLivres.setRequete(GUIAffichageLivres.getRequete()+Q9);
+				
 				frameQ9.dispose();
 				GUIQuizz10.main(null);
 			}
 		});
-		btnNewButton_4.setBounds(427, 398, 85, 21);
+		btnNewButton_4.setBounds(609, 492, 85, 21);
 		frameQ9.getContentPane().add(btnNewButton_4);
 		
 		JToggleButton tglbtnNewToggleButton = new JToggleButton("");
 		buttonGroup.add(tglbtnNewToggleButton);
 		tglbtnNewToggleButton.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/Montagne.jpg")));
-		tglbtnNewToggleButton.setBounds(20, 36, 306, 197);
+		tglbtnNewToggleButton.setBounds(20, 36, 280, 175);
 		frameQ9.getContentPane().add(tglbtnNewToggleButton);
-		tglbtnNewToggleButton.setActionCommand("Montagne");
+		tglbtnNewToggleButton.setActionCommand("montagne+");
 		
 		JToggleButton tglbtnNewToggleButton_1 = new JToggleButton("");
 		buttonGroup.add(tglbtnNewToggleButton_1);
 		tglbtnNewToggleButton_1.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/detail_ibiza-02.jpg")));
-		tglbtnNewToggleButton_1.setBounds(341, 48, 239, 131);
+		tglbtnNewToggleButton_1.setBounds(411, 14, 239, 131);
 		frameQ9.getContentPane().add(tglbtnNewToggleButton_1);
-		tglbtnNewToggleButton_1.setActionCommand("Ibiza");
+		tglbtnNewToggleButton_1.setActionCommand("soleil+");
 		
 		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("");
 		buttonGroup.add(tglbtnNewToggleButton_2);
 		tglbtnNewToggleButton_2.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/papiers-peints-chalet-montagne.jpg.jpg")));
-		tglbtnNewToggleButton_2.setBounds(23, 260, 353, 209);
+		tglbtnNewToggleButton_2.setBounds(10, 236, 280, 137);
 		frameQ9.getContentPane().add(tglbtnNewToggleButton_2);
-		tglbtnNewToggleButton_2.setActionCommand("Chalet");
+		tglbtnNewToggleButton_2.setActionCommand("chalet+");
 		
 		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("");
 		buttonGroup.add(tglbtnNewToggleButton_3);
 		tglbtnNewToggleButton_3.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/plage-de-reve-maldives.jpg")));
-		tglbtnNewToggleButton_3.setBounds(386, 198, 250, 175);
+		tglbtnNewToggleButton_3.setBounds(322, 340, 250, 175);
 		frameQ9.getContentPane().add(tglbtnNewToggleButton_3);
-		tglbtnNewToggleButton_3.setActionCommand("Place");
+		tglbtnNewToggleButton_3.setActionCommand("paradisiaque+");
+		
+		JToggleButton tglbtnNewToggleButton_4 = new JToggleButton("");
+		buttonGroup.add(tglbtnNewToggleButton_4);
+		tglbtnNewToggleButton_4.setIcon(new ImageIcon(GUIQuizz9.class.getResource("/image/photoImposee.jpg")));
+		tglbtnNewToggleButton_4.setBounds(400, 155, 250, 175);
+		frameQ9.getContentPane().add(tglbtnNewToggleButton_4);
+		tglbtnNewToggleButton_4.setActionCommand("j+");
 	}
 }

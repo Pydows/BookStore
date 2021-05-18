@@ -45,7 +45,7 @@ public class GUIQuizz3 {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		// Définissez le frame
+		// Dï¿½finissez le frame
 		frameQ3 = new JFrame("Quel livre est fait pour vous ? (3/10) ");
 		frameQ3.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIQuizz3.class.getResource("/image/livre.png")));
 		frameQ3.setTitle("Quel livre est fait pour vous ? (3/10) ");
@@ -61,33 +61,35 @@ public class GUIQuizz3 {
 		buttonGroup.add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.setBounds(10, 37, 456, 23);
 		frameQ3.getContentPane().add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setActionCommand("heureux");
+		rdbtnNewRadioButton.setActionCommand("super+");
 
 		JRadioButton rdbtnManga = new JRadioButton("Melancolique/songeur");
 		buttonGroup.add(rdbtnManga);
 		rdbtnManga.setBounds(10, 63, 355, 23);
 		frameQ3.getContentPane().add(rdbtnManga);
-		rdbtnManga.setActionCommand("melancolique");
+		rdbtnManga.setActionCommand("regret+");
 
 		JRadioButton rdbtnBd = new JRadioButton("Content/normal");
 		buttonGroup.add(rdbtnBd);
 		rdbtnBd.setBounds(10, 89, 355, 23);
 		frameQ3.getContentPane().add(rdbtnBd);
-		rdbtnBd.setActionCommand("normal");
+		rdbtnBd.setActionCommand("habituel+");
 
 		JRadioButton rdbtnRecueilDePosie = new JRadioButton("Ennuye / en manque d'extraordinaire");
 		buttonGroup.add(rdbtnRecueilDePosie);
 		rdbtnRecueilDePosie.setBounds(10, 115, 359, 23);
 		frameQ3.getContentPane().add(rdbtnRecueilDePosie);
-		rdbtnRecueilDePosie.setActionCommand("ennuye");
+		rdbtnRecueilDePosie.setActionCommand("aventure+");
 
 
 		JButton btnNewButton = new JButton("Suivant");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					String Q3 = buttonGroup.getSelection().getActionCommand();
-					System.out.println("Aujourd'hui vous etes plutôt " + 
-							Q3);
+					//System.out.println("Aujourd'hui vous etes plutï¿½t " + Q3);
+					GUIAffichageLivres.setRequete(GUIAffichageLivres.getRequete()+Q3);
+					
+					
 					frameQ3.dispose();
 					GUIQuizz4.main(null);
 				

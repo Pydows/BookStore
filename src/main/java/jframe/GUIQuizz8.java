@@ -63,37 +63,39 @@ public class GUIQuizz8 {
 		buttonGroup.add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.setBounds(10, 31, 545, 21);
 		frameQ8.getContentPane().add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setActionCommand("Mener l'enquete");
+		rdbtnNewRadioButton.setActionCommand("enquete+");
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Vous en profitez pour ressortir toutes les casseroles de cette personne");
 		buttonGroup.add(rdbtnNewRadioButton_1);
 		rdbtnNewRadioButton_1.setBounds(10, 67, 528, 21);
 		frameQ8.getContentPane().add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.setActionCommand("Sortir les casseroles de la personne");
+		rdbtnNewRadioButton_1.setActionCommand("reputation+");
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Vous d\u00E9fendez le pauvre bougre ");
 		buttonGroup.add(rdbtnNewRadioButton_2);
 		rdbtnNewRadioButton_2.setBounds(10, 103, 426, 21);
 		frameQ8.getContentPane().add(rdbtnNewRadioButton_2);
-		rdbtnNewRadioButton_2.setActionCommand("Le défendre");
+		rdbtnNewRadioButton_2.setActionCommand("defenseur+");
 		
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Vous criez au scandale et demandez une sanction imm\u00E9diate");
 		buttonGroup.add(rdbtnNewRadioButton_3);
 		rdbtnNewRadioButton_3.setBounds(10, 138, 426, 21);
 		frameQ8.getContentPane().add(rdbtnNewRadioButton_3);
-		rdbtnNewRadioButton_3.setActionCommand("CRIER au scandale !");
+		rdbtnNewRadioButton_3.setActionCommand("scandale+");
 		
 		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("Vous vous rendez imm\u00E9diatement chez l'accus\u00E9 pour lui voler tous ses biens");
 		buttonGroup.add(rdbtnNewRadioButton_4);
 		rdbtnNewRadioButton_4.setBounds(10, 172, 528, 21);
 		frameQ8.getContentPane().add(rdbtnNewRadioButton_4);
-		rdbtnNewRadioButton_4.setActionCommand("voler l'accusé");
+		rdbtnNewRadioButton_4.setActionCommand("voleur+");
 		
 		JButton btnNewButton = new JButton("Suivant");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String Q8 = buttonGroup.getSelection().getActionCommand();
-				System.out.println(Q8);
+				//System.out.println(Q8);
+				GUIAffichageLivres.setRequete(GUIAffichageLivres.getRequete()+Q8);
+				
 				frameQ8.dispose();
 				GUIQuizz9.main(null);
 			}

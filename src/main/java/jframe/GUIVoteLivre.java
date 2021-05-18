@@ -16,6 +16,9 @@ import javax.swing.SwingConstants;
 
 import dao.DAOAvis;
 import metier.Avis;
+import metier.Compte;
+import metier.Lecteur;
+import metier.Livre;
 
 public class GUIVoteLivre {
 
@@ -23,15 +26,16 @@ public class GUIVoteLivre {
 	private JTextField textField;
 	private final ButtonGroup buttonNoteLivre = new ButtonGroup();
 	private DAOAvis daoA = new DAOAvis();
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(Compte c) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUIVoteLivre window = new GUIVoteLivre();
+					GUIVoteLivre window = new GUIVoteLivre(c);
 					window.frmEvaluationDunLivre.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,18 +47,18 @@ public class GUIVoteLivre {
 	/**
 	 * Create the application.
 	 */
-	public GUIVoteLivre() {
-		initialize();
+	public GUIVoteLivre(Compte c) {
+		initialize(c);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(Compte c) {
 		frmEvaluationDunLivre = new JFrame();
 		frmEvaluationDunLivre.setTitle("Evaluation d'un livre");
 		frmEvaluationDunLivre.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIVoteLivre.class.getResource("/image/livre.png")));
-		frmEvaluationDunLivre.setBounds(100, 100, 505, 295);
+		frmEvaluationDunLivre.setBounds(100, 100, 497, 372);
 		frmEvaluationDunLivre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmEvaluationDunLivre.getContentPane().setLayout(null);
 		
@@ -130,17 +134,29 @@ public class GUIVoteLivre {
 		frmEvaluationDunLivre.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Exprimez-vous en quelques lignes");
+		JLabel lblNewLabel_1 = new JLabel("Exprimez-vous en quelques lignes (commentaire)");
 		lblNewLabel_1.setBounds(93, 69, 302, 13);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		frmEvaluationDunLivre.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Titre du livre ?");
+		lblNewLabel_2.setBounds(80, 239, 302, 13);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		frmEvaluationDunLivre.getContentPane().add(lblNewLabel_2);
+
+
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(50, 262, 389, 32);
+		frmEvaluationDunLivre.getContentPane().add(textField_1);
 		
 		Button button = new Button("Valider");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String AvisLivre = textField.getText();
 				Integer NoteLivre = Integer.parseInt(buttonNoteLivre.getSelection().getActionCommand());
-				Avis nouvelA = new Avis(NoteLivre, AvisLivre);
+				String titreLivre = textField_1.getText();
+				Avis nouvelA = new Avis(NoteLivre, AvisLivre, new Livre(titreLivre), new Lecteur(c.getLogin(), c.getPassword()));
 				if(e.getActionCommand().equals("Valider") && NoteLivre != null) {
 					System.out.println(NoteLivre + "\n " + AvisLivre);
 					daoA.save(nouvelA);
@@ -154,7 +170,8 @@ public class GUIVoteLivre {
 			}
 		});
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		button.setBounds(193, 227, 66, 21);
+		button.setBounds(198, 310, 66, 21);
 		frmEvaluationDunLivre.getContentPane().add(button);
+		
 	}
 }
