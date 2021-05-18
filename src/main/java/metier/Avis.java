@@ -75,6 +75,13 @@ public class Avis {
 	public void setLecteur(Lecteur lecteur) {
 		this.lecteur = lecteur;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Avis [id=" + id + ", note=" + note + ", commentaire=" + commentaire + ", livre=" + livre + ", lecteur="
+				+ lecteur + "]";
+	}
 	
 	
 

@@ -15,6 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import dao.DAOAvis;
+import dao.DAOLecteur;
+import dao.DAOLivre;
 import metier.Avis;
 import metier.Compte;
 import metier.Lecteur;
@@ -26,6 +28,8 @@ public class GUIVoteLivre {
 	private JTextField textField;
 	private final ButtonGroup buttonNoteLivre = new ButtonGroup();
 	private DAOAvis daoA = new DAOAvis();
+	private DAOLivre daoL = new DAOLivre();
+	private DAOLecteur daoLec = new DAOLecteur();
 	private JTextField textField_1;
 
 	/**
@@ -156,9 +160,14 @@ public class GUIVoteLivre {
 				String AvisLivre = textField.getText();
 				Integer NoteLivre = Integer.parseInt(buttonNoteLivre.getSelection().getActionCommand());
 				String titreLivre = textField_1.getText();
-				Avis nouvelA = new Avis(NoteLivre, AvisLivre, new Livre(titreLivre), new Lecteur(c.getLogin(), c.getPassword()));
+				Livre livre = new Livre(titreLivre);
+				daoL.save(livre);
+				Lecteur lecteur =  new Lecteur(c.getId(), c.getLogin(), c.getPassword());
+				daoLec.save(lecteur);
+				Avis nouvelA = new Avis(NoteLivre, AvisLivre, livre, lecteur);
+				System.out.println(nouvelA.toString());
 				if(e.getActionCommand().equals("Valider") && NoteLivre != null) {
-					System.out.println(NoteLivre + "\n " + AvisLivre);
+					System.out.println(NoteLivre + "\n" + AvisLivre);
 					daoA.save(nouvelA);
 					frmEvaluationDunLivre.dispose();
 					GUIMenuLecteur.main(null);

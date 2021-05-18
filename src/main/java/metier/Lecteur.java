@@ -39,9 +39,9 @@ public class Lecteur extends Compte{
 		this.dateNaissance = dateNaissance;
 	}
 	
-	public Lecteur(String login, String password)
+	public Lecteur(int id,String login, String password)
 	{
-		super(login, password);
+		super(id,login, password);
 	}
 
 	public Lecteur() {
