@@ -119,6 +119,7 @@ public class GUIVoteLivre {
 		frmEvaluationDunLivre.getContentPane().add(rdbtnNewRadioButton_9);
 		rdbtnNewRadioButton_9.setActionCommand("10");
 		
+		
 		JLabel lblNewLabel = new JLabel("Quelle note attribuez-vous au livre ?");
 		lblNewLabel.setBounds(93, 11, 302, 32);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

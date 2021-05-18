@@ -104,7 +104,7 @@ public class GUILogin {
 				}
 				else
 				{
-					success.setText("Loupé escroc");
+					success.setText("Loupï¿½ escroc");
 				}
 			}
 		});

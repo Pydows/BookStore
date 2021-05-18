@@ -97,7 +97,7 @@ public class GUICreaCompte {
 				else
 				{
 					System.out.println("Création de Compte confirmé");
-//					DAOl.save(nouveauC);
+					DAOl.save(nouveauC);
 					frmCrationDeCompte.dispose();
 					GUILogin.main(null);
 				}

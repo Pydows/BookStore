@@ -5,8 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import dao.DAOLecteur;
+import metier.Lecteur;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 
 public class GUILecteur {
@@ -15,6 +20,7 @@ public class GUILecteur {
 	private JTextField textField_nomLecteur;
 	private JTextField textField_prenomLecteur;
 	private JTextField textField_DNLecteur;
+	private DAOLecteur DAOlect = new DAOLecteur();
 
 	/**
 	 * Launch the application.
@@ -89,17 +95,18 @@ public class GUILecteur {
 			public void actionPerformed(ActionEvent e) {
 				String nomLec=textField_nomLecteur.getText();
 				String prenomLec=textField_prenomLecteur.getText();
-				String dateNaissanceLec=textField_DNLecteur.getText();
+				LocalDate dateNaissanceLec=LocalDate.parse(textField_DNLecteur.getText());
+				Lecteur nvLecteur = new Lecteur(nomLec, prenomLec, dateNaissanceLec);
 				if(nomLec.equals("") || prenomLec.equals(""))
 				{
 					error.setText("Veuillez rentrer un nom et prénom !");
 				}
 				else {
+					DAOlect.save(nvLecteur);
 					System.out.println(nomLec +" "+ prenomLec +" "+  dateNaissanceLec);
 					frmInscriptionDunLecteur.dispose();
 					GUIMenuLecteur.main(null);				
 				}
-				
 			}
 		});
 		btnNewButton.setBounds(10, 137, 371, 23);
