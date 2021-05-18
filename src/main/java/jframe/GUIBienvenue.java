@@ -63,11 +63,11 @@ public class GUIBienvenue {
 		btnNewButton_1.setBounds(262, 35, 266, 109);
 		frmBienvenueSurLa.getContentPane().add(btnNewButton_1);
 		
-		JLabel lblNewLabel = new JLabel("Pas encore de compte ? Cr\u00E9ez-en 1 ici :");
+		JLabel lblNewLabel = new JLabel("Pas encore de compte ? Creez-en 1 ici :");
 		lblNewLabel.setBounds(262, 155, 237, 14);
 		frmBienvenueSurLa.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton_2 = new JButton("Cr\u00E9ation de Compte");
+		JButton btnNewButton_2 = new JButton("Creation de Compte");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmBienvenueSurLa.dispose();
