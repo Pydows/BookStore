@@ -11,7 +11,6 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name="typeCompte")
 public class Compte {
 
 	@Id
