@@ -25,9 +25,10 @@ public class Test {
 
 		em.close();
 
+		GUIBienvenue.main(args);
 		emf.close();
 
-
+		
 	}
 
 }
