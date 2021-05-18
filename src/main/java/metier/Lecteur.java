@@ -14,7 +14,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id_compte")
-@DiscriminatorValue(value="Lecteur")
 public class Lecteur extends Compte{
 	
 	private String nom, prenom;
@@ -90,7 +89,7 @@ public class Lecteur extends Compte{
 		this.totalAchat = totalAchat;
 	}
 
-	public Avis voter(double note, String commentaire, Livre livre) {
+	public Avis voter(int  note, String commentaire, Livre livre) {
 					
 			Avis a = new Avis(note, commentaire, livre, this);
 			return a;

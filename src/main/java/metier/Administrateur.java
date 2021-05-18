@@ -10,7 +10,6 @@ import dao.DAOLivre;
 
 @Entity
 @PrimaryKeyJoinColumn(name="id_compte")
-@DiscriminatorValue("admin")
 public class Administrateur extends Compte {
 
 	

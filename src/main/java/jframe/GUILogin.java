@@ -13,7 +13,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import dao.DAOCompte;
+import metier.Administrateur;
 import metier.Compte;
+import metier.Lecteur;
+import util.Context;
 
 public class GUILogin {
 
@@ -87,24 +90,23 @@ public class GUILogin {
 			public void actionPerformed(ActionEvent e) {
 				String user = userText.getText();
 				String password = passwordText.getText();
+				Compte c = daoC.findByLoginAndPassword(user, password);
+				Context.getInstance().setConnected(c);
 				
-				
-				
-				if (user.equals("adm")&& password.equals("adm"))
+				if (c instanceof Administrateur)
 				{
 					// Le changement de page
 					frame.dispose();
-					GUIAjoutLivre.main(null);
-					daoC.findById(user);
+					GUIMenuAdmin.main(null);
 				}
-				else if (user.equals("lec")&& password.equals("lec"))
+				else if (c instanceof Lecteur)
 				{
 					frame.dispose();
 					GUILecteur.main(null);
 				}
 				else
 				{
-					success.setText("Loup� escroc");
+					success.setText("Loupé escroc");
 				}
 			}
 		});
