@@ -1,5 +1,6 @@
 package jframe;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,8 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import jframe.GUICreaCompte;
-import java.awt.Color;
+import dao.DAOCompte;
+import metier.Compte;
 
 public class GUILogin {
 
@@ -25,6 +26,7 @@ public class GUILogin {
 	private JButton button;
 	private JLabel success;
 	private JButton btnFermer;
+	private DAOCompte daoC = new DAOCompte();
 
 	/**
 	 * Launch the application.
@@ -86,11 +88,14 @@ public class GUILogin {
 				String user = userText.getText();
 				String password = passwordText.getText();
 				
+				
+				
 				if (user.equals("adm")&& password.equals("adm"))
 				{
 					// Le changement de page
 					frame.dispose();
 					GUIAjoutLivre.main(null);
+					daoC.findById(user);
 				}
 				else if (user.equals("lec")&& password.equals("lec"))
 				{

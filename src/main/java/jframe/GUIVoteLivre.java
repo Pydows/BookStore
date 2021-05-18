@@ -1,26 +1,28 @@
 package jframe;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import java.awt.Button;
 import java.awt.Cursor;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.EventQueue;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import dao.DAOAvis;
+import metier.Avis;
 
 public class GUIVoteLivre {
 
 	private JFrame frmEvaluationDunLivre;
 	private JTextField textField;
 	private final ButtonGroup buttonNoteLivre = new ButtonGroup();
+	private DAOAvis daoA = new DAOAvis();
 
 	/**
 	 * Launch the application.
@@ -136,9 +138,11 @@ public class GUIVoteLivre {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String AvisLivre = textField.getText();
-				String NoteLivre = buttonNoteLivre.getSelection().getActionCommand();
+				Integer NoteLivre = Integer.parseInt(buttonNoteLivre.getSelection().getActionCommand());
+				Avis nouvelA = new Avis(NoteLivre, AvisLivre);
 				if(e.getActionCommand().equals("Valider") && NoteLivre != null) {
 					System.out.println(NoteLivre + "\n " + AvisLivre);
+					daoA.save(nouvelA);
 					frmEvaluationDunLivre.dispose();
 					GUIMenuLecteur.main(null);
 				}
