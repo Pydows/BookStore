@@ -7,6 +7,10 @@ import javax.swing.JRadioButton;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import dao.DAOAvis;
+import metier.Avis;
+
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -21,6 +25,7 @@ public class GUIVoteLivre {
 	private JFrame frmEvaluationDunLivre;
 	private JTextField textField;
 	private final ButtonGroup buttonNoteLivre = new ButtonGroup();
+	private DAOAvis DAOavis = new DAOAvis();
 
 	/**
 	 * Launch the application.
@@ -117,6 +122,7 @@ public class GUIVoteLivre {
 		frmEvaluationDunLivre.getContentPane().add(rdbtnNewRadioButton_9);
 		rdbtnNewRadioButton_9.setActionCommand("10");
 		
+		
 		JLabel lblNewLabel = new JLabel("Quelle note attribuez-vous au livre ?");
 		lblNewLabel.setBounds(93, 11, 302, 32);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -136,8 +142,9 @@ public class GUIVoteLivre {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String AvisLivre = textField.getText();
-				String NoteLivre = buttonNoteLivre.getSelection().getActionCommand();
-				if(e.getActionCommand().equals("Valider") && NoteLivre != null) {
+				Integer NoteLivre = Integer.parseInt(buttonNoteLivre.getSelection().getActionCommand());
+				Avis NvAvis = new Avis(NoteLivre, AvisLivre);
+				if(NoteLivre != null) {
 					System.out.println(NoteLivre + "\n " + AvisLivre);
 					frmEvaluationDunLivre.dispose();
 					GUIMenuLecteur.main(null);
