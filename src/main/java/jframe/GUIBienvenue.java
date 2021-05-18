@@ -50,14 +50,14 @@ public class GUIBienvenue {
 		frmBienvenueSurLa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBienvenueSurLa.getContentPane().setLayout(null);
 		
-		JButton btnNewButton_1 = new JButton("Connection ");
+		JButton btnNewButton_1 = new JButton("Connexion ");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmBienvenueSurLa.dispose();
 				GUILogin.main(null);
 			}
 		});
-		btnNewButton_1.setBackground(Color.GREEN);
+		btnNewButton_1.setBackground(Color.GRAY);
 		btnNewButton_1.setForeground(Color.BLACK);
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		btnNewButton_1.setBounds(262, 35, 266, 109);
